@@ -118,5 +118,24 @@ namespace Monad.Tests
         {
             Assert.Equal(expectedHashCode, sut.GetHashCode());
         }
+
+        public static IEnumerable<object[]> StringifyData
+        {
+            get
+            {
+                yield return new object[] { new Option<int>(), "None()" };
+                yield return new object[] { new Option<int>(54), "Some(54)" };
+
+                yield return new object[] { new Option<string>(), "None()" };
+                yield return new object[] { new Option<string>("test"), "Some(test)" };
+            }
+        }
+
+        [Theory]
+        [MemberData(nameof(StringifyData))]
+        public void Stringify<T>(Option<T> sut, string expectedString)
+        {
+            Assert.Equal(expectedString, sut.ToString());
+        }
     }
 }
