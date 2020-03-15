@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <Nullable>enable</Nullable>
+    <RootNamespace>PhoenixGames.Monad</RootNamespace>
+  </PropertyGroup>
+  
+  <PropertyGroup Label="NuGet package">
+    <PackageId>PhoenixGames.Monad</PackageId>
+    <PackageVersion>1.0.0-alpha</PackageVersion>
+    <Authors>Loïc Morvan</Authors>
+  </PropertyGroup>
+
+</Project>
