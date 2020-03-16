@@ -1,25 +1,32 @@
-﻿using System.Collections.Generic;
-using Xunit;
+﻿using Xunit;
 using static Monad.OptionEx;
 
 namespace Monad.Tests
 {
     public class OptionEx
     {
-        public static IEnumerable<object[]> CreateSomeData
+        [Fact]
+        public void CreateSomeInt()
         {
-            get
-            {
-                yield return new object[] { 54 };
-                //yield return new object[] { "test" }; Does not work???
-            }
+            Assert.Equal(new Option<int>(54), Some(54));
         }
 
-        [Theory]
-        [MemberData(nameof(CreateSomeData))]
-        public void CreateSome<T>(T value)
+        [Fact]
+        public void CreateSomeString()
         {
-            Assert.Equal(new Option<T>(value), Some(value));
+            Assert.Equal(new Option<string>("test"), Some("test"));
+        }
+
+        [Fact]
+        public void CreateNoneInt()
+        {
+            Assert.Equal(new Option<int>(), None<int>());
+        }
+
+        [Fact]
+        public void CreateNoneString()
+        {
+            Assert.Equal(new Option<string>(), None<string>());
         }
     }
 }
